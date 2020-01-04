@@ -1,0 +1,37 @@
+html, body {
+    padding: 0;
+    margin: 0;
+}
+body {
+    background-color:#d2d3d5;
+}
+.box-list {
+    max-width: 250px;
+    text-align: center;
+    height: 40px;
+    margin: 5px 10px 5px 10px;
+    line-height: 36px;
+    transition: background-color 0.5s ease;
+    color: white;
+    font-size: 25px;
+    cursor: pointer;
+    background-color:#3ab54e;
+}
+.active-box {
+    background-color: #ed1b24;
+}
+.in-active-box {
+    background-color: #818286;
+}
+@media only screen and (min-width: 576px) {
+    .container {
+        width: 550px;
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: column;
+        height: 260px;
+    }
+    .box-list {
+        margin: 5px 10px 0px 10px;
+    }
+}
