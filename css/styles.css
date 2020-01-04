@@ -23,7 +23,7 @@ body {
 .in-active-box {
     background-color: #818286;
 }
-@media only screen and (min-width: 576px) {
+@media only screen and (min-width: 550px) {
     .container {
         width: 550px;
         display: flex;

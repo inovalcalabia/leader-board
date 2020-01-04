@@ -3,30 +3,29 @@ var boxCount = 10;
 var currentIndex = 5;
 var boxList = [];
 var activeClass = 'active-box';
-var inactiveBoxClass = 'in-active-box';
+var inactiveClass = 'in-active-box';
 function initBoxes() {
-    for (var i = 1; i <=  boxCount; i += 1) {
+    for (var i = 1; i <= boxCount; i += 1) {
         document.getElementsByClassName('container')[0].innerHTML += ('<div class="box-list box-index-' + i+'" value='+i+'>' + i + '</div>');
         boxList.push(i);
     }
 }
 function initHandler() {
-    for (var i = 1; i <=  boxCount; i += 1) {
-        document.getElementsByClassName('box-index-' + i)[0].addEventListener('click', onclick); 
+    for (var i = 1; i <= boxCount; i += 1) {
+        document.getElementsByClassName('box-index-' + i)[0].addEventListener('click', onClickHandler); 
     }
 }
-function onclick(e) {
+function onClickHandler(e) {
     currentIndex = e.target.getAttribute('value');
     update();
 }
 function indexHandler() {
     if (currentIndex < 1) {
-        currentIndex = boxCount;
-    } else if (currentIndex > boxCount) {
         currentIndex = 1;
+    } else if (currentIndex > boxCount) {
+        currentIndex = boxCount;
     }
     update();
-   
 }
 function inactive(value) {
     return value > currentIndex;
@@ -37,16 +36,16 @@ function equals(value) {
 function clean() {
     document.querySelectorAll(".box-list").forEach(function(element) {
         element.classList.remove(activeClass);
-        element.classList.remove(inactiveBoxClass);
+        element.classList.remove(inactiveClass);
     });
 }
 function update() {
     clean();
-    boxList.filter(inactive).forEach((v)=>{document.getElementsByClassName('box-index-' + v)[0].classList.add(inactiveBoxClass);})
+    boxList.filter(inactive).forEach((v)=>{document.getElementsByClassName('box-index-' + v)[0].classList.add(inactiveClass);})
     boxList.filter(equals).forEach((v)=>{document.getElementsByClassName('box-index-' + v)[0].classList.add(activeClass);})
   
 }
-function arrowKeyshandler(e) {
+function keyDownHandler(e) {
     switch(e.keyCode) {
         case 38:
           currentIndex -= 1;
@@ -66,5 +65,5 @@ function init() {
 }
 if (document.addEventListener) {
     document.addEventListener('DOMContentLoaded', init, false);
-    document.addEventListener('keydown', arrowKeyshandler);
+    document.addEventListener('keydown', keyDownHandler);
 }
