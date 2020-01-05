@@ -1,11 +1,9 @@
 html, body {
     padding: 0;
     margin: 0;
-}
-body {
     background-color:#d2d3d5;
 }
-.box-list {
+.box {
     max-width: 250px;
     text-align: center;
     height: 40px;
@@ -31,7 +29,7 @@ body {
         flex-direction: column;
         height: 260px;
     }
-    .box-list {
+    .box {
         margin: 5px 10px 0px 10px;
     }
 }
